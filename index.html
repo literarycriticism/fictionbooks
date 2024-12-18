@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Literary Criticism: Fiction Books</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <img src="images/Logo1.png" alt="Logo" class="logo" />
+            <h5 class="logo-text">Literary Criticism: Fiction Books</h5> <!-- Added here -->
+        </div>
+        <nav class="navigation">
+            <ul>
+                <li><a href="index.html" class="nav-link active">Gender</a></li>
+                <li><a href="marxist.html" class="nav-link">Marxist</a></li>
+                <li><a href="new.html" class="nav-link">New</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="content-container">
+        <div class="image-container">
+            <img src="images/Book1.jpg" alt="Center Image" class="center-image" />
+        </div>
+        <div class="text-container">
+            <h1 class="firstbook">Feminist Criticism about “Make My Wish Come True” by Rachel Lippincott</h1>
+            <p class="firstbookpara">
+                Make My Wish Come True by Rachael Lippincott includes some ideas of the modern femininity problem connected with the identification of women’s personalities, their relations with 
+                society, and their ability to be independent. The main characters in this story are Arden James and Caroline Beckett. In the novel, the changes tell the story of women’s relief 
+                and women’s capacity to challenge the role expected of them by society within the workplace and in relationships. From this perspective, one of the most important topics for 
+                analysis of the book is the way society perceives women, especially celebrities. 
+            <p>Caroline Beckett’s Seven Basic Plot Points shows that women have it tough in the workplace. Caroline is a small town journalist who tries to have a good career even though she is 
+                dealing with so much pressure being a woman. She responded and said, “It’s hard to be taken seriously in a room full of people who think you’re just here to fill a quota”. They 
+                show that in many male-dominated fields, women face prejudice where their worth is constantly doubted. Caroline wants to be promoted for being deserving instead of being feminine, 
+                which is a common feminist theme. She also struggles with a choice between a career and personal life when she will say, "Can I really have both, the career I want and the happiness 
+                I deserve?”. This is about women’s duality and the excess pressure on them: they have to be career-oriented and happy but end up ill. </p>
+                Another issue that can also be discussed in relation to the novel is the performance aspect that is characteristic of all people so that they could become acceptable for society. Both 
+                Arden and Caroline experience this in one way or another, especially in the series where it is an entirely fake dating arrangement. After, Caroline says to herself, "We’re pretending, 
+                but aren’t we all pretending in some way to fit into the world?". This line shows the range to which women direct into playing out the cultural roles assigned to them despite the fact 
+                that they are suppressed beings. In the case of Arden and Caroline, fake dating represents the pressure to perform a role appropriate to the cultural narrative, which expects women to 
+                act in harmony with that narrative rather than the reality they desire. 
+            </p>
+            
+        </div>
+        <div class="additional-text">
+            <p>
+                Now, breaking with the stereotype of the romantic holiday, the novel presents the relationship between two women, focusing on the problem of representation of the strange community. 
+                Caroline says, “I’ve spent so much time trying to convince myself that I couldn't fall in love with someone like you, but it was never my ability to love that was in question.” 
+                It becomes relative based on what feels right to me.” This line refers to Caroline’s transformation of aspiration and a freedom-denying culture with regards to the concept of love and relationships. 
+                It focuses on the message that people should be able to decide on their own or write the love story they please without limitations. Concerning the sapphic relationship, the story underlines the 
+                importance of multiple representations and the right of women to love and happiness.
+            </p>
+            <p>
+                As it was seen in the case of Arden and Caroline and their transformation throughout the story "Make My Wish Come True", it cancels out the stereotype of injustice on women in an attempt to meet societal expectations. 
+                The relationships of women characters in the story demonstrate that a woman in present-day society, whether promoted to the theatre boss like Arden or pursuing a career like Caroline, must endure social demands as well 
+                as their career ambitions. They are all aware of the early feminist movement, the inability to share an opinion and choices of one’s life, including happiness. The book proves that, despite the fact that the community sets 
+                specific standards that women need to follow, women can fight these norms and build the lives they want and lead the careers they choose.
+            </p>
+            <p>
+                In conclusion, "Make My Wish Come True" shows a strong female message about finding oneself, the need for emancipation from society’s rules, and steps toward it. 
+                Both Arden’s attempt in the show at a process of regaining control of her life and Caroline S Beckett’s determinations of her career and family represent numerous modern women’s conflicts. 
+                The novel is an evolution story for women and outlines that women can take charge of their lives regardless of all the limitations placed on them. Therefore, the book highlights aspects 
+                of women’s self-identification, their choices, and happiness outside the enclosure of gender prejudices. 
+            </p>
+        </div>
+    </div>
+    <div class="criticWriter">- Amante, Carl Justine</div>
+    <br> <br> <br>
+    <hr style="border: none; border-top: 2px solid black; width: 100%; margin: 20px 0;">
+
+    <h1 style="text-align: center;">Feedback</h1>
+
+    <div id="feedback-section" style="text-align: center;">
+        <form id="comment-form" style="margin: 20px 0;">
+            <textarea id="comment" placeholder="Write your feedback here..." required></textarea>
+
+            <button type="submit" style="margin-top: 10px;background-color: rgb(88, 88, 219); color: white; padding: 10px 20px; font-size: 16px;">Submit</button>
+        </form>
+        <div id="display-comment" style="margin-top: 20px; font-size: 16px; color: #333;">
+            <!-- Comments will appear here -->
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('comment-form');
+        const displayComment = document.getElementById('display-comment');
+        
+        // Generate a unique key for the current page based on its URL or a custom identifier
+        const pageIdentifier = window.location.pathname; // Use the page URL as an identifier
+        const storageKey = `comments_${pageIdentifier}`; // Combine it with a prefix to make the key unique
+        
+        // Function to load comments from localStorage and display them
+        function loadComments() {
+            const comments = JSON.parse(localStorage.getItem(storageKey)) || []; // Retrieve comments using the unique key
+            comments.forEach((comment) => {
+                addCommentToDOM(comment);
+            });
+        }
+        
+        // Function to add a comment to the DOM
+        function addCommentToDOM(commentText) {
+            const commentBox = document.createElement('div');
+            commentBox.classList.add('comment-box');
+            commentBox.innerHTML = `
+                <button class="delete-button">X</button>
+                <p class="comment-text"><strong></strong> ${commentText}</p>
+            `;
+        
+            // Add delete functionality
+            const deleteButton = commentBox.querySelector('.delete-button');
+            deleteButton.addEventListener('click', function () {
+                const comments = JSON.parse(localStorage.getItem(storageKey)) || [];
+                const updatedComments = comments.filter((comment) => comment !== commentText); // Remove the specific comment
+                localStorage.setItem(storageKey, JSON.stringify(updatedComments)); // Save updated comments to localStorage
+                displayComment.removeChild(commentBox); // Remove the comment box from the DOM
+            });
+        
+            // Append the comment box to the display area
+            displayComment.appendChild(commentBox);
+        }
+        
+        // Event listener for form submission
+        form.addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent form from refreshing the page
+            const commentText = document.getElementById('comment').value;
+        
+            if (commentText.trim()) {
+                // Save comment to localStorage using the unique key
+                const comments = JSON.parse(localStorage.getItem(storageKey)) || [];
+                comments.push(commentText);
+                localStorage.setItem(storageKey, JSON.stringify(comments));
+        
+                // Add comment to DOM
+                addCommentToDOM(commentText);
+        
+                form.reset(); // Clear the textarea after submission
+            } else {
+                alert("Please write a comment before submitting.");
+            }
+        });
+        
+        // Load comments when the page loads
+        window.addEventListener('DOMContentLoaded', loadComments);
+        </script>
+</body>
+
+</body>
+
+</html>
+ 
